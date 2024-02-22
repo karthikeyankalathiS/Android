@@ -4,15 +4,14 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+
     <ImageView
         android:id="@+id/Image"
-        android:layout_width="81dp"
-        android:layout_height="81dp"
+        android:layout_width="380dp"
+        android:layout_height="169dp"
+        android:layout_gravity="center_horizontal"
         android:scaleType="centerCrop"
-        android:src="@drawable/placeholder_image"
-        android:layout_gravity="center_horizontal"/>
-
-
+        android:src="@drawable/placeholder_image" />
 
     <TextView
         android:id="@+id/MovieName"

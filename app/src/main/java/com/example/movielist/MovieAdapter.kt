@@ -29,16 +29,21 @@ class MovieAdapter(private var movies: List<Model>) :
         holder.itemView.findViewById<TextView>(R.id.Year).text = releaseYear
 
 
-        val baseUrl = "http://image.tmdb.org/t/p/w780"
+        val baseUrl = "https://image.tmdb.org/t/p/w780"
         val fullPosterPath = baseUrl + movie.backdrop_path
         Log.i("photo",fullPosterPath)
 
-        Glide.with(holder.itemView.context)
-            .load(fullPosterPath)
-            .placeholder(R.drawable.placeholder_image)
-            .error(R.drawable.error_image)
-            .override(81, 81) // Set the desired width and height
-            .into(holder.itemView.findViewById<ImageView>(R.id.Image))
+        try {
+            Glide.with(holder.itemView.context)
+                .load(fullPosterPath)
+                .placeholder(R.drawable.placeholder_image)
+                .error(R.drawable.error_image)
+                .override(81, 81)
+                .into(holder.itemView.findViewById<ImageView>(R.id.Image))
+        } catch (e: Exception) {
+            Log.e("GlideError", "Error loading image: $e")
+        }
+
 
     }
 
